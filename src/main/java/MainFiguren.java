@@ -23,7 +23,7 @@ public class MainFiguren {
 		ft.init();
 		ft.testWerte3D();
 
-		ft.testFigur2D();
+//		ft.testFigur2D();
 		ft.testFigur3D();
 
 	}

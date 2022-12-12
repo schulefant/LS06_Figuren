@@ -11,9 +11,9 @@ public class MainFiguren {
 	ArrayList<Figur3D> formen3D = new ArrayList<>();
 	ArrayList<GeradesPrisma<? extends Figur2D>> geradePrismen = new ArrayList<>();
 
-	RegelmaessigeGeradePyramide<N_Eck> drei = new RegelmaessigeGeradePyramide<N_Eck>(6, new N_Eck(5, 3));
-	RegelmaessigeGeradePyramide<N_Eck> vier = new RegelmaessigeGeradePyramide<N_Eck>(6, new N_Eck(5, 4));
-	RegelmaessigeGeradePyramide<N_Eck> sieben = new RegelmaessigeGeradePyramide<N_Eck>(6, new N_Eck(5, 7));
+	RegelmaessigeGeradePyramide<N_Eck> drei = new RegelmaessigeGeradePyramide<>(6, new N_Eck(5, 3));
+	RegelmaessigeGeradePyramide<N_Eck> vier = new RegelmaessigeGeradePyramide<>(6, new N_Eck(5, 4));
+	RegelmaessigeGeradePyramide<N_Eck> sieben = new RegelmaessigeGeradePyramide<>(6, new N_Eck(5, 7));
 	KreisKegel kk = new KreisKegel(6, 2.5);
 	Tetraeder tetra = new Tetraeder(5);
 	Kugel k = new Kugel(2.5);

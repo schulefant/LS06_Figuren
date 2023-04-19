@@ -18,7 +18,7 @@ public class N_Eck extends Figur2D {
 			setSeitenLaenge(seitenLaenge);
 			this.n = anzahl;
 		} else
-			throw new IllegalArgumentException("Ein NEck brauch mindestens 3 Seiten.");
+			throw new IllegalArgumentException("Ein N-Eck brauch mindestens 3 Seiten.");
 	}
 
 	@Override

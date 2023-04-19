@@ -62,7 +62,7 @@ class DreieckTest {
 	}
 	@Test
 	void testIfValidTriangleHasCorrectHeight() {
-		assertEquals(d1.getHoehe(),4.37149859887888,0.000001,"Height not correct");
+		assertEquals(d1.hoehe(),4.37149859887888,0.000001,"Height not correct");
 	}
 	@Test
 	void ifTriangleIsNotValidThrowException()throws IllegalArgumentException{

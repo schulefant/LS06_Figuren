@@ -3,7 +3,7 @@
  */
 package figuren2D;
 
-public class Dreieck extends Figur2D implements Comparable<Dreieck> {
+public class Dreieck extends Figur2D {
 	private double seiteA;
 	private double seiteB; // ist Basis
 	private double seiteC;
@@ -66,8 +66,28 @@ public class Dreieck extends Figur2D implements Comparable<Dreieck> {
 			throw new IllegalArgumentException("Seitenaenderung nicht moeglich, da Dreieck dann nicht valide");
 	}
 
-	public double getHoehe() {
-		return this.flaeche() * 2 / this.seiteB; // Seite B ist Basis
+	/**
+	 * 
+	 * @return Hoehe des Dreiecks zur Basis SeiteC
+	 */
+	public double hoehe() {
+		return this.flaeche() * 2 / this.seiteC; 
+	}
+	/**
+	 * 
+	 * @return Hoehe des Dreiecks zur angegebenen Basis
+	 */
+	public double hoehe(char seiteBasis) {
+		double s=0;
+		
+		if(seiteBasis == 'a' ||seiteBasis == 'A')
+			s=this.seiteA;
+		else if(seiteBasis == 'b' ||seiteBasis == 'B')
+			s= this.seiteB;
+		else if(seiteBasis == 'c' ||seiteBasis == 'C')
+			s=this.seiteC;
+
+		return this.flaeche() * 2 / s; 
 	}
 
 	@Override
@@ -104,13 +124,4 @@ public class Dreieck extends Figur2D implements Comparable<Dreieck> {
 		return false;
 	}
 
-	@Override
-	public int compareTo(Dreieck o) {
-		if (this.equals(o))
-			return 0;
-		else if (this.umfang() < o.umfang())
-			return -1;
-		else
-			return 1;
-	}
 }

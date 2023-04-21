@@ -6,14 +6,13 @@ import figuren2D.Dreieck;
 import figuren2D.N_Eck;
 
 //Jede Seite ist gleich lang
-public class RegelmaessigeGeradePyramide<F extends N_Eck>  extends GeradePyramide<F> {
+public class RegelmaessigeGeradePyramide  extends GeradePyramide<N_Eck> {
 
-	public RegelmaessigeGeradePyramide(double hoehe, F fig) {
+	public RegelmaessigeGeradePyramide(double hoehe, N_Eck fig) {
 		super(hoehe, fig);
 	}
-	@SuppressWarnings("unchecked")
 	public RegelmaessigeGeradePyramide(double hoehe, double kante, int anzahlSeiten) throws IllegalArgumentException{
-		this(hoehe, (F) new N_Eck(kante, anzahlSeiten));
+		this(hoehe, new N_Eck(kante, anzahlSeiten));
 	}
 
 	@Override

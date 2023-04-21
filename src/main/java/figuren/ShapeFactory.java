@@ -6,8 +6,8 @@ import figuren2D.*;
 import figuren3D.*;
 
 public class ShapeFactory {
-	public enum TwoDFig {TRIANGLE, CIRCLE, RECTANGLE, POLYGON, STAR}
-	public enum ThreeDFig {SPHERE, PYRAMID,REGULARPRISM}
+	public enum TwoDFig {TRIANGLE, CIRCLE, RECTANGLE, POLYGON, STAR, STICKFIGURE}
+	public enum ThreeDFig {SPHERE, PRISM, CYLINDER, REGULARPRISM, REGULARPYRAMID, CONE}
 	
 	public static Figur2D create2DShape(TwoDFig type, List<Double> dimensions) throws IllegalArgumentException{
 		switch( type ) {
@@ -35,9 +35,18 @@ public class ShapeFactory {
 				return new Stern(dimensions.get(0),dimensions.get(1),(int)anzahl);
 			}
 			break;
+		case STICKFIGURE:
+			if(dimensions.size()>=6) {
+				Kreis k = (Kreis) create2DShape(TwoDFig.CIRCLE , dimensions.subList(0,1));
+				Dreieck d = (Dreieck) create2DShape(TwoDFig.TRIANGLE , dimensions.subList(1, 4));
+				Rechteck r = (Rechteck) create2DShape(TwoDFig.RECTANGLE , dimensions.subList(4, 6));
+				return new Maennchen(k, d, r);
+			}
+			break;
 		}
 		throw new IllegalArgumentException();
 	}
+	
 	public static Figur3D create3DShape(ThreeDFig type, List<Double> dimensions) throws IllegalArgumentException{
 		double anzahl=0;
 
@@ -46,17 +55,57 @@ public class ShapeFactory {
 			if(!dimensions.isEmpty())
 				return new Kugel(dimensions.get(0));
 			break;
+		case CYLINDER: 
+			if(dimensions.size()>1) {
+				return new GeradesPrisma<Kreis>(dimensions.get(0),new Kreis(dimensions.get(1)));
+			}
+			break;
 		case REGULARPRISM: 
 			if(dimensions.size()>2) {
 				anzahl = dimensions.get(2);
 				return new GeradesPrisma<N_Eck>(dimensions.get(0),new N_Eck(dimensions.get(1), (int)anzahl));
 			}
 			break;
-		case PYRAMID: 
+		case REGULARPYRAMID: 
 			if(dimensions.size()>2) {
 				anzahl = dimensions.get(2);
-				return new RegelmaessigeGeradePyramide<N_Eck>(dimensions.get(0),new N_Eck(dimensions.get(1), (int)anzahl));
+				return new RegelmaessigeGeradePyramide(dimensions.get(0),new N_Eck(dimensions.get(1), (int)anzahl));
 			}
+			break;
+		case CONE: 
+			if(dimensions.size()>1) {
+				return new KreisKegel(dimensions.get(0),dimensions.get(1));
+			}
+			break;
+		default:
+			break;
+		}
+		throw new IllegalArgumentException();
+	}
+	
+	public static Figur3D create3DShapeWithBase(ThreeDFig type, Figur2D base, List<Double> dimensions) throws IllegalArgumentException{
+		switch( type ) {
+		case PRISM: 
+			if(dimensions.size()==1) {
+				return new GeradesPrisma<Figur2D>(dimensions.get(0),base);
+			}
+			break;
+		case CONE: 
+			if(dimensions.size()>1 && base.getClass().equals(Kreis.class)) {
+				return new KreisKegel(dimensions.get(0),(Kreis)base);
+			}
+			break;
+		case REGULARPRISM: 
+			if(dimensions.size()>1 && base.getClass().equals(N_Eck.class)) {
+				return new GeradesPrisma<N_Eck>(dimensions.get(0),(N_Eck)base);
+			}
+			break;
+		case REGULARPYRAMID: 
+			if(dimensions.size()>1 && base.getClass().equals(N_Eck.class)) {
+				return new RegelmaessigeGeradePyramide(dimensions.get(0),(N_Eck)base);
+			}
+			break;
+		default:
 			break;
 		}
 		throw new IllegalArgumentException();

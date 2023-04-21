@@ -3,17 +3,20 @@
  */
 import figuren3D.*;
 import figuren2D.*;
+import figuren.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class MainFiguren {
+	static Random rnd = new Random();
 	ArrayList<Figur2D> formen2D = new ArrayList<>();
 	ArrayList<Figur3D> formen3D = new ArrayList<>();
 	ArrayList<GeradesPrisma<? extends Figur2D>> geradePrismen = new ArrayList<>();
 
-	RegelmaessigeGeradePyramide<N_Eck> drei = new RegelmaessigeGeradePyramide<>(6, new N_Eck(5, 3));
-	RegelmaessigeGeradePyramide<N_Eck> vier = new RegelmaessigeGeradePyramide<>(6, new N_Eck(5, 4));
-	RegelmaessigeGeradePyramide<N_Eck> sieben = new RegelmaessigeGeradePyramide<>(6, new N_Eck(5, 7));
+	RegelmaessigeGeradePyramide drei = new RegelmaessigeGeradePyramide(6, new N_Eck(5, 3));
+	RegelmaessigeGeradePyramide vier = new RegelmaessigeGeradePyramide(6, new N_Eck(5, 4));
+	RegelmaessigeGeradePyramide sieben = new RegelmaessigeGeradePyramide(6, new N_Eck(5, 7));
 	KreisKegel kk = new KreisKegel(6, 2.5);
 	Tetraeder tetra = new Tetraeder(5);
 	Kugel k = new Kugel(2.5);
@@ -75,8 +78,8 @@ public class MainFiguren {
 	}
 
 	public void init() {
-		formen2D.add(new Stern(3, 6, 5));
 		formen2D.add(new Maennchen(new Kreis(1.5), new Dreieck(4, 6, 6), new Rechteck(1, 5)));
+		formen2D.add(new Stern(3, 6, 5));
 		formen2D.add(new N_Eck(5,3));
 		formen2D.add(new N_Eck(3.5,5));
 		formen2D.add(new Kreis(3));
@@ -86,7 +89,7 @@ public class MainFiguren {
 
 //Figur3D		
 		for (Figur2D fig : formen2D) {
-			geradePrismen.add(new GeradesPrisma<Figur2D>(6, fig));
+			geradePrismen.add(new GeradesPrisma<Figur2D>(rnd.nextInt(10), fig));
 		}
 		formen3D.addAll(geradePrismen);
 
@@ -96,5 +99,4 @@ public class MainFiguren {
 		formen3D.add(sieben);
 		formen3D.add(k);
 	}
-
 }

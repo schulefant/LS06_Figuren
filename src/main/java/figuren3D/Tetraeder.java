@@ -5,7 +5,7 @@ package figuren3D;
 import figuren2D.N_Eck;
 
 //Ein Tetraeder hat vier gleiche gleichseitige Dreiecke
-public class Tetraeder extends RegelmaessigeGeradePyramide<N_Eck> {
+public class Tetraeder extends RegelmaessigeGeradePyramide {
 
 	public Tetraeder(double kante) {
 		super(calcHoehe(kante), new N_Eck(kante,3));
@@ -20,9 +20,11 @@ public class Tetraeder extends RegelmaessigeGeradePyramide<N_Eck> {
 		//Pythagoras
 		return Math.sqrt(kante*kante-sm*sm );
 	}
+
 	public double getKante(){
 		return this.getGrundKantenLaenge() ;
 	}
+
 	@Override
 	public String name() {
 		return "Tetraeder mit Kante " + this.getGrundKantenLaenge() + ".";

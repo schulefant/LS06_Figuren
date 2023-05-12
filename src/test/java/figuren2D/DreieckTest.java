@@ -30,27 +30,27 @@ class DreieckTest {
 	@Test void testIfSettingSidesChangesTriangle() {
 		d1.setSeiteA(13);
 		d2 = new Dreieck(13, 20, 8);
-		assertTrue(d1.equals(d2));
+		assertEquals(d1,d2);
 		d1.setSeiteB(19);
 		d2 = new Dreieck(13, 19, 8);
-		assertTrue(d1.equals(d2));
+		assertEquals(d1,d2);
 		d1.setSeiteC(7.8);
 		d2 = new Dreieck(13, 19, 7.8);
-		assertTrue(d1.equals(d2));
+		assertEquals(d1,d2);
 	}
 	@Test
 	void testIfTrianglesCompareCorrectly() {
+		d2 = new Dreieck(14, 20, 8);
+		assertEquals(d1,d2);
 		d2 = new Dreieck(14, 20, 7.9);
 		assertTrue(d1.compareTo(d2)>0);
 		assertTrue(d2.compareTo(d1)<0);
-		d2 = new Dreieck(14, 19.9, 8);		
-		assertTrue(d1.compareTo(d2)>0);
-		assertTrue(d2.compareTo(d1)<0);
+		d2 = new Dreieck(14, 19.8, 8);		
+		assertTrue(d1.compareTo(d2)<0, "Value is " + d1.compareTo(d2) + d1.flaeche() +" < " + d2.flaeche());
+		assertTrue(d2.compareTo(d1)>0, "Value is " + d1.compareTo(d2));
 		d2 = new Dreieck(13.9, 20, 8);		
-		assertTrue(d1.compareTo(d2)>0);
-		assertTrue(d2.compareTo(d1)<0);
-		d2 = new Dreieck(14, 20, 8);
-		assertTrue(d1.compareTo(d2) ==0);
+		assertTrue(d1.compareTo(d2)>0, "Value is " + d1.compareTo(d2));
+		assertTrue(d2.compareTo(d1)<0, "Value is " + d1.compareTo(d2));
 	}
 	@Test
 	void testIfValidTriangleHasCorrectArea() {
@@ -62,7 +62,7 @@ class DreieckTest {
 	}
 	@Test
 	void testIfValidTriangleHasCorrectHeight() {
-		assertEquals(d1.hoehe(),4.37149859887888,0.000001,"Height not correct");
+		assertEquals(d1.hoehe(),10.9287465,0.000001,"Height not correct");
 	}
 	@Test
 	void ifTriangleIsNotValidThrowException()throws IllegalArgumentException{

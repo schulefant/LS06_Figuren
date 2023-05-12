@@ -2,11 +2,11 @@
  * @author rollins
  */
 package figuren2D;
-
+import figuren.ICSVString;
 import figuren.INamed;
 
 
-public abstract class Figur2D implements INamed, Comparable<Figur2D>{
+public abstract class Figur2D implements INamed, Comparable<Figur2D>,ICSVString{
 	public abstract double flaeche();
 	public abstract double umfang();
 	@Override
@@ -14,5 +14,7 @@ public abstract class Figur2D implements INamed, Comparable<Figur2D>{
 		return (int)(this.flaeche()-fig.flaeche());
 		
 	}
+
+	public abstract String toCSVString();
 	//public abstract double show();
 }

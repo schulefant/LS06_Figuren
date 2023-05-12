@@ -3,7 +3,9 @@
  */
 package figuren2D;
 
-public class Dreieck extends Figur2D {
+import figuren.TwoDFig;
+
+public class Dreieck extends Figur2D{
 	private double seiteA;
 	private double seiteB; // ist Basis
 	private double seiteC;
@@ -70,24 +72,27 @@ public class Dreieck extends Figur2D {
 	 * 
 	 * @return Hoehe des Dreiecks zur Basis SeiteC
 	 */
+
 	public double hoehe() {
-		return this.flaeche() * 2 / this.seiteC; 
+		return (this.flaeche() * 2 )/ this.seiteC;
 	}
+
 	/**
 	 * 
 	 * @return Hoehe des Dreiecks zur angegebenen Basis
 	 */
-	public double hoehe(char seiteBasis) {
-		double s=0;
-		
-		if(seiteBasis == 'a' ||seiteBasis == 'A')
-			s=this.seiteA;
-		else if(seiteBasis == 'b' ||seiteBasis == 'B')
-			s= this.seiteB;
-		else if(seiteBasis == 'c' ||seiteBasis == 'C')
-			s=this.seiteC;
 
-		return this.flaeche() * 2 / s; 
+	public double hoehe(char seiteBasis) {
+		double s = 0;
+
+		if (seiteBasis == 'a' || seiteBasis == 'A')
+			s = this.seiteA;
+		else if (seiteBasis == 'b' || seiteBasis == 'B')
+			s = this.seiteB;
+		else if (seiteBasis == 'c' || seiteBasis == 'C')
+			s = this.seiteC;
+
+		return this.flaeche() * 2 / s;
 	}
 
 	@Override
@@ -124,4 +129,12 @@ public class Dreieck extends Figur2D {
 		return false;
 	}
 
+	@Override
+	public String toCSVString() {
+		String result = TwoDFig.TRIANGLE+ ";";
+		result += seiteA + ";";
+		result += this.seiteB + ";";
+		result += this.seiteC + ";";
+		return result;
+	}
 }

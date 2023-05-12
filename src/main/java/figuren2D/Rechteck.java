@@ -3,6 +3,8 @@
  */
 package figuren2D;
 
+import figuren.TwoDFig;
+
 public class Rechteck extends Figur2D {
 	private double hoehe;
 	private double breite;
@@ -24,10 +26,12 @@ public class Rechteck extends Figur2D {
 		return "Rechteck mit Hoehe " + this.getHoehe() + " und Breite " + this.getBreite();
 	}
 
+	@Override
 	public double flaeche() {
 		return breite * hoehe;
 	}
 
+	@Override
 	public double umfang() {
 		return 2 * (breite + hoehe);
 	}
@@ -64,5 +68,13 @@ public class Rechteck extends Figur2D {
 		System.out.print(", Breite: " + breite);
 		System.out.print(", Flaeche: " + flaeche());
 		System.out.println(", Umfang: " + umfang());
+	}
+
+	@Override
+	public String toCSVString() {
+		String result = TwoDFig.RECTANGLE+ ";";
+		result += this.hoehe + ";";
+		result += this.breite + ";";
+		return result;
 	}
 }

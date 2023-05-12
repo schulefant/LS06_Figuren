@@ -28,5 +28,8 @@ public class Kugel extends Figur3D {
 	public String name() {
 		return "Kugel mit Radius " + this.getRadius() + " Radius.";
 	}
-
+	@Override
+	public String toCSVString() {
+		return this.radius + ";";
+	}
 }

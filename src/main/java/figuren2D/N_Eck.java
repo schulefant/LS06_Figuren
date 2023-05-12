@@ -3,6 +3,8 @@
  */
 package figuren2D;
 
+import figuren.TwoDFig;
+
 public class N_Eck extends Figur2D {
 
 	private double seitenLaenge;
@@ -51,9 +53,19 @@ public class N_Eck extends Figur2D {
 		return (this.seitenLaenge / 2) * (1 / (Math.sin(Math.PI / this.n)));
 	}
 
+	@Override
 	public double flaeche() {
 		double seite = this.aussenKreisRadius();
 		Dreieck d = new Dreieck(seite, seite, seitenLaenge);
 		return d.flaeche() * n;
+	}
+
+
+	@Override
+	public String toCSVString() {
+		String result = TwoDFig.POLYGON+ ";";
+		result += this.seitenLaenge + ";";
+		result += this.n + ";";
+		return result;
 	}
 }

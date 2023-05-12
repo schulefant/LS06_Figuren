@@ -12,7 +12,6 @@ public class KreisKegel extends GeradePyramide<Kreis> {
 	public KreisKegel(double hoehe, double radius) {
 		super(hoehe, new Kreis(radius));
 	}
-
 	@Override
 	public double mantel() {
 
@@ -28,5 +27,4 @@ public class KreisKegel extends GeradePyramide<Kreis> {
 	public String name() {
 		return "Kreiskegel mit Hoehe " + this.getHoehe() + " und " + this.getGrund().getRadius() + " Radius.";
 	}
-
 }

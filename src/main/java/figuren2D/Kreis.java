@@ -3,6 +3,8 @@
  */
 package figuren2D;
 
+import figuren.TwoDFig;
+
 public class Kreis extends Figur2D {
 	private double radius;
 
@@ -26,13 +28,19 @@ public class Kreis extends Figur2D {
 		return this.radius;
 	}
 
+	@Override
 	public double flaeche() {
 		double flaeche = this.radius * this.radius * Math.PI;
 		return flaeche;
 	}
 
+	@Override
 	public double umfang() {
 		return Math.PI * 2 * radius;
 	}
 
+	@Override
+	public String toCSVString() {
+		return TwoDFig.CIRCLE+ ";"+ this.radius + ";";
+	}
 }

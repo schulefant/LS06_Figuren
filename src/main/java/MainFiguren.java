@@ -1,12 +1,14 @@
+
 /**
  * @author rollins
  */
 import figuren3D.*;
 import figuren2D.*;
 import figuren.*;
+
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Random;
-
 
 public class MainFiguren {
 	static Random rnd = new Random();
@@ -24,10 +26,10 @@ public class MainFiguren {
 	public static void main(String[] args) {
 		MainFiguren ft = new MainFiguren();
 		ft.init();
-		ft.testWerte3D();
-
-		ft.testFigur2D();
-		ft.testFigur3D();
+//		ft.testWerte3D();
+//
+//		ft.testFigur2D();
+//		ft.testFigur3D();
 
 	}
 
@@ -71,8 +73,8 @@ public class MainFiguren {
 	private void testFigur3D() {
 		for (Figur3D fig : formen3D) {
 			System.out.println("Figur von Typ " + fig.name());
-			System.out.println("    Oberflaeche: " + " " + Math.round(fig.oberflaeche()*1000)/1000.0);
-			System.out.println("    Volumen: " + Math.round(fig.volumen()*1000)/1000.0);
+			System.out.println("    Oberflaeche: " + " " + Math.round(fig.oberflaeche() * 1000) / 1000.0);
+			System.out.println("    Volumen: " + Math.round(fig.volumen() * 1000) / 1000.0);
 		}
 
 	}
@@ -80,8 +82,8 @@ public class MainFiguren {
 	public void init() {
 		formen2D.add(new Maennchen(new Kreis(1.5), new Dreieck(4, 6, 6), new Rechteck(1, 5)));
 		formen2D.add(new Stern(3, 6, 5));
-		formen2D.add(new N_Eck(5,3));
-		formen2D.add(new N_Eck(3.5,5));
+		formen2D.add(new N_Eck(5, 3));
+		formen2D.add(new N_Eck(3.5, 5));
 		formen2D.add(new Kreis(3));
 		formen2D.add(new Dreieck(6, 7, 9));
 		formen2D.add(new Rechteck(4, 7.7));

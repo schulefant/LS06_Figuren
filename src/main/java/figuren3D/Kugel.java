@@ -3,6 +3,8 @@
  */
 package figuren3D;
 
+import figuren.ThreeDFig;
+
 public class Kugel extends Figur3D {
 	private double radius;
 	
@@ -30,6 +32,6 @@ public class Kugel extends Figur3D {
 	}
 	@Override
 	public String toCSVString() {
-		return this.radius + ";";
+		return ThreeDFig.SPHERE+ ";"+radius + ";";
 	}
 }

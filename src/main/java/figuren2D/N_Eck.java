@@ -68,4 +68,9 @@ public class N_Eck extends Figur2D {
 		result += this.n + ";";
 		return result;
 	}
+
+	@Override
+	public TwoDFig getType() {
+		return TwoDFig.POLYGON ;
+	}
 }

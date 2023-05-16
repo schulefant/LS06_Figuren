@@ -77,4 +77,9 @@ public class Maennchen extends ZusammengesetzteFigur {
 				+ koerper.getSeiteA()+ ";" + koerper.getSeiteC()+ ";"+ ZusammengesetzteFigur.csvMinusFigType(arme[0])
 				+ ZusammengesetzteFigur.csvMinusFigType(beine[0]);
 	}
+
+	@Override
+	public TwoDFig getType() {
+		return TwoDFig.STICKFIGURE ;
+	}
 }

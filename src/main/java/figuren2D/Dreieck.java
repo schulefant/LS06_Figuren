@@ -137,4 +137,9 @@ public class Dreieck extends Figur2D{
 		result += this.seiteC + ";";
 		return result;
 	}
+
+	@Override
+	public TwoDFig getType() {
+		return TwoDFig.TRIANGLE;
+	}
 }

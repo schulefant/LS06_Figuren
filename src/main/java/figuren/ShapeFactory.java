@@ -91,8 +91,8 @@ public class ShapeFactory {
 		throw new IllegalArgumentException();
 	}
 
-	public static Figur3D create3DShapeWithBase(ThreeDFig type, Figur2D base, List<Double> dimensions)
-			throws IllegalArgumentException {
+	public static Figur3D create3DShapeWithBase(ThreeDFig type, Figur2D base, List<Double> dimensions)//throws IllegalArgumentException 
+	{
 		switch (type) {
 		case PRISM:
 			if (dimensions.size() == 1) {
@@ -114,20 +114,39 @@ public class ShapeFactory {
 				return new RegelmaessigeGeradePyramide(dimensions.get(0), (N_Eck) base);
 			}
 			break;
-		default:
-			break;
 		}
-		throw new IllegalArgumentException();
+//		throw new IllegalArgumentException();
+		return null;
+		
 	}
 
 //	public static void writeAll( List<? extends ICSVString> figs, Path p) throws IOException {
 //		for(ICSVString f: figs) {
-////TODO write schreibt alles untereinander - daher funktioniert es nicht.			
+//// write schreibt alles untereinander - daher funktioniert es nicht.			
 //			Files.write(p, Arrays.asList(f.toCSVString().split(";")), StandardOpenOption.APPEND);
 //		}
 //	}
+	public static void appendToFile(ICSVString fig, Path p) {
+
+		try (BufferedWriter bw = Files.newBufferedWriter(p, StandardOpenOption.APPEND)) {
+
+			bw.write(fig.toCSVString());
+			bw.write("\n");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void writeAll(List<? extends ICSVString> figs, Path p) {
+
+		try {
+			Files.deleteIfExists(p);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		try (BufferedWriter bw = Files.newBufferedWriter(p, StandardOpenOption.CREATE)) {
+
 			for (ICSVString f : figs) {
 				bw.write(f.toCSVString());
 				bw.write("\n");
@@ -165,12 +184,20 @@ public class ShapeFactory {
 		for (String str : strl) {
 			String[] dims = str.split(";");
 			ThreeDFig tdf = ThreeDFig.valueOf(dims[0]);
-			List<String> strDim = Arrays.asList(dims);
+			TwoDFig baseType = null;
 			List<Double> dblL = new ArrayList<>();
-			strl.remove(0);
-			for (String s : strDim)
-				dblL.add(Double.parseDouble(s));
-			l.add(create3DShape(tdf, dblL));
+
+			for (int i = 1; i < dims.length; i++) {
+				try {
+					dblL.add(Double.parseDouble(dims[i]));
+				} catch (NumberFormatException e) {
+					baseType = TwoDFig.valueOf(dims[i]);
+				}
+			}
+			if (baseType == null)
+				l.add(create3DShape(tdf, dblL));
+			else
+				l.add(create3DShapeWithBase(tdf, create2DShape(baseType, dblL.subList(1, dblL.size())),dblL.subList(0,1)));
 		}
 		return l;
 	}

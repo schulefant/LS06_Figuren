@@ -26,8 +26,9 @@ public enum TwoDFig {
 			l.add("Anzahl Seiten");
 			break;
 		case STAR:
-			l.add("Seitenlänge eines Zackens");
+			l.add("Breite eines Zackens");
 			l.add("Anzahl Zacken");
+			l.add("Seitenlänge eines Zackens");
 			break;
 		case STICKFIGURE:
 			l.add("Radius des Kopfes");

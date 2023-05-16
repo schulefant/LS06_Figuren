@@ -34,5 +34,9 @@ public class Stern extends ZusammengesetzteFigur{
 	public String toCSVString() {
 		return TwoDFig.STAR + ";" + csvMinusFigType(this.getZentrum()) +this.getZacke().getSeiteC() + ";" ;
 	}
+	@Override
+	public TwoDFig getType() {
+		return TwoDFig.STAR ;
+	}
 }
 

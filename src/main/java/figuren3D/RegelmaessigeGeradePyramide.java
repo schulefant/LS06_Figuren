@@ -3,6 +3,7 @@
  */
 package figuren3D;
 
+import figuren.ThreeDFig;
 import figuren2D.Dreieck;
 import figuren2D.N_Eck;
 
@@ -38,5 +39,11 @@ public class RegelmaessigeGeradePyramide  extends GeradePyramide<N_Eck> {
 	@Override
 	public String name() {
 		return "Regelmaessige gerade Pyramide mit Hoehe " + this.getHoehe() + " und " + this.getAnzahlSeiten() + " Seiten.";
+	}
+	@Override
+	public String toCSVString() {
+		String result = ThreeDFig.REGULARPYRAMID + ";";
+		result += super.toCSVString();
+		return result;
 	}
 }

@@ -31,8 +31,26 @@ public class MainFigurenWithFactory {
 			Paths.get("Materialpreise Fuellung.csv"));
 
 	public static void main(String[] args) {
-
-		dreiD();
+		int answer = 1;
+		do {
+			System.out.println("(1) Eins, zwei, drei Exit");
+			System.out.println("(2) Zweidimensionale Figuren ");
+			System.out.println("(3) Dreidimensionale Figuren ");
+			answer = scanner.nextInt();
+			switch (answer) {
+			case 1:
+				System.out.println("May the Coding Force be with you!");
+				break;
+			case 2:
+				zweiD();
+				break;
+			case 3:
+				dreiD();
+				break;
+			default:
+				System.out.println("Unentschieden?");
+			}
+		} while (answer != 1);
 	}
 
 	private static void zweiD() {
@@ -52,7 +70,7 @@ public class MainFigurenWithFactory {
 	private static void creating3DAblauf() {
 		char answer = 'n';
 		do {
-			System.out.print("3DFigur anlegen?");
+			System.out.print("\n3DFigur anlegen (j/n)?");
 			try {
 				answer = consoleReader.readLine().charAt(0);
 			} catch (IOException e) {
@@ -72,7 +90,7 @@ public class MainFigurenWithFactory {
 	private static void creating2DAblauf() {
 		char answer = 'n';
 		do {
-			System.out.print("2DFigur anlegen?");
+			System.out.print("2DFigur anlegen (j/n)?");
 			try {
 				answer = consoleReader.readLine().charAt(0);
 			} catch (IOException e) {
@@ -113,7 +131,6 @@ public class MainFigurenWithFactory {
 		try {
 			formen3D = ShapeFactory.readAllThreeDShapes(p3d);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("Aus der Datei gelesen:");
@@ -272,7 +289,11 @@ public class MainFigurenWithFactory {
 			System.out.println("    Oberflaeche: " + " " + Math.round(fig.oberflaeche() * 1000) / 1000.0);
 			System.out.println("    Volumen: " + Math.round(fig.volumen() * 1000) / 1000.0);
 		}
-
 	}
 
+	public static void cls() {
+		for (int clear = 0; clear < 80; clear++) {
+			System.out.println();
+		}
+	}
 }

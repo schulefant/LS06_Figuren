@@ -1,0 +1,214 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3535), pid=12904, tid=5856
+#
+# JRE version:  (17.0.3.1+2) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (17.0.3.1+2-LTS-6, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: C:\Users\rollins\AppData\Local\Temp\surefire11980554356513506637\surefirebooter8903330034913216195.jar C:\Users\rollins\AppData\Local\Temp\surefire11980554356513506637 2023-05-17T14-33-15_494-jvmRun1 surefire16490632327519736782tmp surefire_09917462090904342061tmp
+
+Host: Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz, 4 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1889)
+Time: Wed May 17 14:33:23 2023 Mitteleuropäische Sommerzeit elapsed time: 0.028032 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000023e8d78ce20):  JavaThread "Unknown thread" [_thread_in_vm, id=5856, stack(0x0000007182b00000,0x0000007182c00000)]
+
+Stack: [0x0000007182b00000,0x0000007182c00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6711ba]
+V  [jvm.dll+0x7d0834]
+V  [jvm.dll+0x7d1fde]
+V  [jvm.dll+0x7d2643]
+V  [jvm.dll+0x242c85]
+V  [jvm.dll+0x66e0d9]
+V  [jvm.dll+0x662a22]
+V  [jvm.dll+0x300ddb]
+V  [jvm.dll+0x308376]
+V  [jvm.dll+0x357f7e]
+V  [jvm.dll+0x3581af]
+V  [jvm.dll+0x2d7ff8]
+V  [jvm.dll+0x2d8f64]
+V  [jvm.dll+0x7a2411]
+V  [jvm.dll+0x365d01]
+V  [jvm.dll+0x78187c]
+V  [jvm.dll+0x3e873f]
+V  [jvm.dll+0x3ea1e1]
+C  [jli.dll+0x527b]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x52651]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007fff7c9d9858, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000023e8d7e6110 GCTaskThread "GC Thread#0" [stack: 0x0000007182c00000,0x0000007182d00000] [id=11356]
+  0x0000023e8d7f7bb0 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000007182d00000,0x0000007182e00000] [id=9092]
+  0x0000023e8d7f8c70 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000007182e00000,0x0000007182f00000] [id=2056]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff7c2289e7]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000023e8d787870] Heap_lock - owner thread: 0x0000023e8d78ce20
+
+Heap address: 0x0000000081e00000, size: 2018 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000081e00000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff7c60a629]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (1 events):
+Event: 0.008 Loaded shared library C:\Program Files\Java\jdk-17.0.3.1\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff690980000 - 0x00007ff690990000 	C:\Program Files\Java\jdk-17.0.3.1\bin\java.exe
+0x00007fffd4ab0000 - 0x00007fffd4ca8000 	C:\windows\SYSTEM32\ntdll.dll
+0x00007fffd2e60000 - 0x00007fffd2f1d000 	C:\windows\System32\KERNEL32.DLL
+0x00007fffd22e0000 - 0x00007fffd25ae000 	C:\windows\System32\KERNELBASE.dll
+0x00007fffd2a10000 - 0x00007fffd2b10000 	C:\windows\System32\ucrtbase.dll
+0x00007fffc56c0000 - 0x00007fffc56d8000 	C:\Program Files\Java\jdk-17.0.3.1\bin\jli.dll
+0x00007fffc56e0000 - 0x00007fffc56fa000 	C:\Program Files\Java\jdk-17.0.3.1\bin\VCRUNTIME140.dll
+0x00007fffd2f20000 - 0x00007fffd2fce000 	C:\windows\System32\ADVAPI32.dll
+0x00007fffd3fd0000 - 0x00007fffd406e000 	C:\windows\System32\msvcrt.dll
+0x00007fffd2cc0000 - 0x00007fffd2d5c000 	C:\windows\System32\sechost.dll
+0x00007fffd38a0000 - 0x00007fffd39c5000 	C:\windows\System32\RPCRT4.dll
+0x00007fffd4460000 - 0x00007fffd4600000 	C:\windows\System32\USER32.dll
+0x00007fffd21d0000 - 0x00007fffd21f2000 	C:\windows\System32\win32u.dll
+0x00007fffbb6b0000 - 0x00007fffbb94a000 	C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007fffd2fd0000 - 0x00007fffd2ffa000 	C:\windows\System32\GDI32.dll
+0x00007fffd2650000 - 0x00007fffd275b000 	C:\windows\System32\gdi32full.dll
+0x00007fffd2810000 - 0x00007fffd28ad000 	C:\windows\System32\msvcp_win.dll
+0x00007fffc3cf0000 - 0x00007fffc3cfa000 	C:\windows\SYSTEM32\VERSION.dll
+0x00007fffd2e30000 - 0x00007fffd2e60000 	C:\windows\System32\IMM32.DLL
+0x00007fffca050000 - 0x00007fffca05c000 	C:\Program Files\Java\jdk-17.0.3.1\bin\vcruntime140_1.dll
+0x00007fffc2640000 - 0x00007fffc26cd000 	C:\Program Files\Java\jdk-17.0.3.1\bin\msvcp140.dll
+0x00007fff7bf40000 - 0x00007fff7cb00000 	C:\Program Files\Java\jdk-17.0.3.1\bin\server\jvm.dll
+0x00007fffd3070000 - 0x00007fffd3078000 	C:\windows\System32\PSAPI.DLL
+0x00007fffcc960000 - 0x00007fffcc969000 	C:\windows\SYSTEM32\WSOCK32.dll
+0x00007fffaa7c0000 - 0x00007fffaa7e7000 	C:\windows\SYSTEM32\WINMM.dll
+0x00007fffd2dc0000 - 0x00007fffd2e2b000 	C:\windows\System32\WS2_32.dll
+0x00007fffd00f0000 - 0x00007fffd0102000 	C:\windows\SYSTEM32\kernel.appcore.dll
+0x00007fffc9fc0000 - 0x00007fffc9fca000 	C:\Program Files\Java\jdk-17.0.3.1\bin\jimage.dll
+0x00007fffc2e30000 - 0x00007fffc3014000 	C:\windows\SYSTEM32\DBGHELP.DLL
+0x00007fffc3b70000 - 0x00007fffc3b9c000 	C:\windows\SYSTEM32\dbgcore.DLL
+0x00007fffd2200000 - 0x00007fffd2282000 	C:\windows\System32\bcryptPrimitives.dll
+0x00007fffc2610000 - 0x00007fffc2635000 	C:\Program Files\Java\jdk-17.0.3.1\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-17.0.3.1\bin;C:\windows\SYSTEM32;C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;C:\Program Files\Java\jdk-17.0.3.1\bin\server
+
+VM Arguments:
+java_command: C:\Users\rollins\AppData\Local\Temp\surefire11980554356513506637\surefirebooter8903330034913216195.jar C:\Users\rollins\AppData\Local\Temp\surefire11980554356513506637 2023-05-17T14-33-15_494-jvmRun1 surefire16490632327519736782tmp surefire_09917462090904342061tmp
+java_class_path (initial): C:\Users\rollins\AppData\Local\Temp\surefire11980554356513506637\surefirebooter8903330034913216195.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 134217728                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2116026368                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2116026368                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-17.0.3.1
+PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Java\jdk-17.0.3.1\bin;C:\Qt\Tools\mingw810_64\bin;C:\apache-maven-3.8.5\bin;C:\Program Files\PuTTY\;C:\Program Files\leJOS EV3\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Users\rollins\AppData\Local\Microsoft\WindowsApps;
+USERNAME=rollins
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.1889)
+OS uptime: 0 days 6:05 hours
+
+CPU: total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 94 stepping 3 microcode 0xcc, cx8, cmov, fxsr, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, rtm, adx, fma, vzeroupper, clflush, clflushopt
+
+Memory: 4k page, system-wide physical 8070M (906M free)
+TotalPageFile size 9350M (AvailPageFile size 43M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 51M, peak: 179M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (17.0.3.1+2-LTS-6) for windows-amd64 JRE (17.0.3.1+2-LTS-6), built on Apr 25 2022 22:04:21 by "mach5one" with MS VC++ 16.8 / 16.9 (VS2019)
+
+END.

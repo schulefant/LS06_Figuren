@@ -140,10 +140,13 @@ public class ShapeFactory {
 
 	public static void writeAllToCSVFile(List<? extends ICSVString> figs, Path p) {
 
+		/* StandardOpenOption.CREATE löscht und truncated die Datei nicht. Wenn 
+		 * aus dem letzen Speichern etwas übrig bleibt, weil Neuspeicherung kürzer, 
+		 * dann komm es zu Fehlern beim Einlesen.
+		 */
 		try {
 			Files.deleteIfExists(p);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try (BufferedWriter bw = Files.newBufferedWriter(p, StandardOpenOption.CREATE)) {

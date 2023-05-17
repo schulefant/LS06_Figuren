@@ -83,11 +83,6 @@ public class MainFigurenWithFactory {
 			break;
 		}
 		return l;
-		// iteriere über Figurenangebot und erzeuge gewünschte Figur mit Factory
-		// TODO iteriere Über Stoffe
-		// lese Benutzerwunsch ein
-		// berechnet mit matCalc.calculate( figur, oMaterial, vMaterial )
-
 	}
 
 	private static void testFigur2D() {
@@ -118,7 +113,7 @@ public class MainFigurenWithFactory {
 		String matO = matCalc.chooseOberflaechenPreis();
 		String matV = matCalc.chooseVolumenPreis();
 		double preis = matCalc.calculate(fig, matO, matV);
-		System.out.println(fig.name() + " mit " + matO + "und mit " + matV + " kostet " + preis);
+		System.out.println(fig.name() + " mit " + matO + " und mit " + matV + " kostet " + preis);
 	}
 
 	public static void testMaterialCalculator() {
@@ -139,8 +134,8 @@ public class MainFigurenWithFactory {
 		formen2D.add(ShapeFactory.create2DShape(TwoDFig.POLYGON, makeRandomDoubleList(2)));
 		try {
 			formen2D.add(ShapeFactory.create2DShape(TwoDFig.TRIANGLE, makeRandomDoubleList(3)));
-			formen2D.add(ShapeFactory.create2DShape(TwoDFig.STAR, makeRandomDoubleList(3)));
-			formen2D.add(ShapeFactory.create2DShape(TwoDFig.STICKFIGURE, makeRandomDoubleList(6)));
+//			formen2D.add(ShapeFactory.create2DShape(TwoDFig.STAR, makeRandomDoubleList(3)));
+//			formen2D.add(ShapeFactory.create2DShape(TwoDFig.STICKFIGURE, makeRandomDoubleList(6)));
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 		}

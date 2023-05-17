@@ -33,20 +33,6 @@ public class ShapeFactory {
 				return new N_Eck(dimensions.get(0),(int)anzahl );
 			}
 			break;
-		case STAR:
-			if(dimensions.size()>=3) {
-				double anzahl = dimensions.get(2);				
-				return new Stern(dimensions.get(0),dimensions.get(1),(int)anzahl);
-			}
-			break;
-		case STICKFIGURE:
-			if(dimensions.size()>=6) {
-				Kreis k = (Kreis) create2DShape(TwoDFig.CIRCLE , dimensions.subList(0,1));
-				Dreieck d = (Dreieck) create2DShape(TwoDFig.TRIANGLE , dimensions.subList(1, 4));
-				Rechteck r = (Rechteck) create2DShape(TwoDFig.RECTANGLE , dimensions.subList(4, 6));
-				return new Maennchen(k, d, r);
-			}
-			break;
 		}
 		throw new IllegalArgumentException();
 	}

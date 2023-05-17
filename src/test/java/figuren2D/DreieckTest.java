@@ -12,7 +12,6 @@ class DreieckTest {
 	void setUp() throws Exception {
 		d1 = new Dreieck(14, 20, 8);
 	}
-
 	@Test
 	void testIfCopiedTriangleIsATrueCopy() {
 		d2 = new Dreieck(d1);

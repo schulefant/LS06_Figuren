@@ -17,7 +17,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MainFigurenWithFactory {
-	
+
 	private static Scanner scanner = new Scanner(System.in);
 	private static BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
 	private static Random rnd = new Random();
@@ -31,48 +31,75 @@ public class MainFigurenWithFactory {
 			Paths.get("Materialpreise Fuellung.csv"));
 
 	public static void main(String[] args) {
-		
-//		writeAll3DAblauf();
-		read3DAblauf();
 
+		dreiD();
 	}
-	private void zweiD() {
+
+	private static void zweiD() {
+//		writeAll2DAblauf();
 		read2DAblauf();
 		creating2DAblauf();
 		ausgabe(formen2D);
 	}
 
+	private static void dreiD() {
+//		writeAll3DAblauf();
+		read3DAblauf();
+		creating3DAblauf();
+		ausgabe(formen3D);
+	}
+
+	private static void creating3DAblauf() {
+		char answer = 'n';
+		do {
+			System.out.print("3DFigur anlegen?");
+			try {
+				answer = consoleReader.readLine().charAt(0);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			if (answer == 'j') {
+				System.out.println("Dezimalzahlen bitte mit Punkt eingeben.");
+				ThreeDFig type = menueAuswahl3D();
+				Figur3D f = ShapeFactory.create3DShape(type, readValuesFor(type));
+				formen3D.add(f);
+				ShapeFactory.appendToCSVFile(f, p3d);
+			}
+		} while (answer == 'j');
+
+	}
+
 	private static void creating2DAblauf() {
-		char answer='n';
+		char answer = 'n';
 		do {
 			System.out.print("2DFigur anlegen?");
 			try {
 				answer = consoleReader.readLine().charAt(0);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if( answer =='j') {
+			if (answer == 'j') {
 				TwoDFig type = menueAuswahl2D();
-			Figur2D f = ShapeFactory.create2DShape(type, readValuesFor(type));
-			formen2D.add(f);
-			ShapeFactory.appendToFile(f, p2d);
+				System.out.println("Dezimalzahlen bitte mit Punkt eingeben.");
+				Figur2D f = ShapeFactory.create2DShape(type, readValuesFor(type));
+				formen2D.add(f);
+				ShapeFactory.appendToCSVFile(f, p2d);
 			}
-		}while(answer == 'j');
-		
+		} while (answer == 'j');
+
 	}
 
 	private static void writeAll2DAblauf() {
 		init2D();
-		ShapeFactory.writeAll(formen2D, p2d);
+		ShapeFactory.writeAllToCSVFile(formen2D, p2d);
 		ausgabe(formen2D);
 	}
+
 	private static void writeAll3DAblauf() {
 		init3D();
-		ShapeFactory.writeAll(formen3D, p3d);
+		ShapeFactory.writeAllToCSVFile(formen3D, p3d);
 		ausgabe(formen3D);
 	}
-
 
 	private static void read2DAblauf() {
 		formen2D.clear();
@@ -80,6 +107,7 @@ public class MainFigurenWithFactory {
 		System.out.println("Aus der Datei gelesen:");
 		ausgabe(formen2D);
 	}
+
 	private static void read3DAblauf() {
 		formen3D.clear();
 		try {
@@ -132,7 +160,7 @@ public class MainFigurenWithFactory {
 		try {
 			for (String str : tdf.dimensionNames()) {
 				System.out.print(str + ":");
-				l.add(scanner.nextDouble());
+				l.add(Double.parseDouble(consoleReader.readLine()));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

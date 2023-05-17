@@ -114,19 +114,20 @@ public class ShapeFactory {
 				return new RegelmaessigeGeradePyramide(dimensions.get(0), (N_Eck) base);
 			}
 			break;
+		case CYLINDER:
+			if (dimensions.size() == 1 && base.getClass().equals(Kreis.class)) {
+				return new GeradesPrisma<Kreis>(dimensions.get(0), (Kreis) base);
+			}
+			break;
+		default:
+			break;
 		}
 //		throw new IllegalArgumentException();
 		return null;
 		
 	}
 
-//	public static void writeAll( List<? extends ICSVString> figs, Path p) throws IOException {
-//		for(ICSVString f: figs) {
-//// write schreibt alles untereinander - daher funktioniert es nicht.			
-//			Files.write(p, Arrays.asList(f.toCSVString().split(";")), StandardOpenOption.APPEND);
-//		}
-//	}
-	public static void appendToFile(ICSVString fig, Path p) {
+	public static void appendToCSVFile(ICSVString fig, Path p) {
 
 		try (BufferedWriter bw = Files.newBufferedWriter(p, StandardOpenOption.APPEND)) {
 
@@ -137,7 +138,7 @@ public class ShapeFactory {
 		}
 	}
 
-	public static void writeAll(List<? extends ICSVString> figs, Path p) {
+	public static void writeAllToCSVFile(List<? extends ICSVString> figs, Path p) {
 
 		try {
 			Files.deleteIfExists(p);

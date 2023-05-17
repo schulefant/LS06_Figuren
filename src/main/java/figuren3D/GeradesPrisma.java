@@ -34,7 +34,7 @@ public class GeradesPrisma<F extends Figur2D> extends FigurMitGrundflaecheUndHoe
 		if (this.getGrund().getType() == TwoDFig.POLYGON)
 			result += ThreeDFig.REGULARPRISM + ";";
 		else if (this.getGrund().getType() == TwoDFig.CIRCLE)
-			result += ThreeDFig.CONE + ";";
+			result += ThreeDFig.CYLINDER + ";";
 		else
 			result += ThreeDFig.PRISM + ";";
 		result += super.toCSVString();

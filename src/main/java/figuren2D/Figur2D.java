@@ -4,7 +4,6 @@
 package figuren2D;
 import figuren.ICSVString;
 import figuren.INamed;
-import figuren.TwoDFig;
 
 
 public abstract class Figur2D implements INamed, Comparable<Figur2D>,ICSVString{
@@ -17,6 +16,5 @@ public abstract class Figur2D implements INamed, Comparable<Figur2D>,ICSVString{
 	}
 
 	public abstract String toCSVString();
-	public abstract TwoDFig getType();
 	//public abstract double show();
 }

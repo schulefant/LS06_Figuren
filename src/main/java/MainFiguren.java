@@ -80,7 +80,7 @@ public class MainFiguren {
 	}
 
 	public void init() {
-		formen2D.add(new Maennchen(new Kreis(1.5), new Dreieck(4, 6, 6), new Rechteck(1, 5), new Rechteck(1, 5)));
+		formen2D.add(new Maennchen(new Kreis(1.5), new Dreieck(4, 6, 6), new Rechteck(1, 5)));
 		formen2D.add(new Stern(3, 6, 5));
 		formen2D.add(new N_Eck(5, 3));
 		formen2D.add(new N_Eck(3.5, 5));

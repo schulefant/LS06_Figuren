@@ -16,17 +16,10 @@ public abstract class FigurMitGrundflaecheUndHoehe<F extends Figur2D> extends Fi
 	}
 	@Override
 	public String toCSVString() {
-		String result = hoehe + ";" + grund.toCSVString();
+		String result = grund.toCSVString();
+		result += hoehe;
 		return result;
 	}
-//	private String csvMinusBase() {
-//		String str = "";
-//		String[] strArr = grund.toCSVString().split(";");
-//		for(int i = 1; i <strArr.length; i++) {
-//			str+= strArr[i] + ";";
-//		}
-//		return str;
-//	}
 
 	/**
 	 * 

@@ -7,21 +7,18 @@ import figuren.TwoDFig;
 
 public class Stern extends ZusammengesetzteFigur{
 
-	public Stern(double zackenbreite, int anzahlZacken, double zackenlaenge )throws IllegalArgumentException {
+	public Stern(double zackenbreite, double zackenlaenge, int anzahlZacken)throws IllegalArgumentException {
 		N_Eck zentrum = new N_Eck(zackenbreite,anzahlZacken);
 		super.addTeilfigur(zentrum);
 		for( int i=1; i < anzahlZacken; i++){
-			addTeilfigur( new Dreieck( zackenlaenge, zackenlaenge, zackenbreite));
+			addTeilfigur( new Dreieck( zackenbreite, zackenlaenge, zackenlaenge));
 		}
 	}
 	protected N_Eck getZentrum() {
 		return (N_Eck) this.getTeilfigur(0);
 	}
-	protected Dreieck getZacke() {
-		return ((Dreieck)this.getTeilfigur(1));
-	}
 	@Override
-	public String name() {return "Stern  mit "+ this.getZentrum().getN() + " Zacken " + " der Laenge " + getZacke().hoehe();}
+	public String name() {return "Stern  mit "+ this.getZentrum().getN() + " Zacken " + " der Laenge " + ((Dreieck)this.getTeilfigur(1)).hoehe();}
 	@Override
 	public double umfang() {
 		double u =0;
@@ -32,11 +29,7 @@ public class Stern extends ZusammengesetzteFigur{
 	}
 	@Override
 	public String toCSVString() {
-		return TwoDFig.STAR + ";" + csvMinusFigType(this.getZentrum()) +this.getZacke().getSeiteC() + ";" ;
-	}
-	@Override
-	public TwoDFig getType() {
-		return TwoDFig.STAR ;
+		return TwoDFig.STAR + ";" + super.toCSVString();
 	}
 }
 

@@ -2,7 +2,6 @@
  * @author rollins
  */
 package figuren3D;
-import figuren.ThreeDFig;
 import figuren2D.*;
 
 public class KreisKegel extends GeradePyramide<Kreis> {
@@ -27,11 +26,5 @@ public class KreisKegel extends GeradePyramide<Kreis> {
 	@Override
 	public String name() {
 		return "Kreiskegel mit Hoehe " + this.getHoehe() + " und " + this.getGrund().getRadius() + " Radius.";
-	}
-	@Override
-	public String toCSVString() {
-		String result = ThreeDFig.CONE + ";";
-		result += super.toCSVString();
-		return result;
 	}
 }

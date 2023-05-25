@@ -29,6 +29,7 @@ public enum TwoDFig {
 		return l;
 	}
 
+//	Ursprünglich unter der Annahme geschreiben, dass bei Enums der Index gespreichert wird
 	public static TwoDFig intToEnum(int i) {
 		switch (i) {
 		case 0:

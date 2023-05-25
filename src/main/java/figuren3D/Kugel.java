@@ -3,18 +3,21 @@
  */
 package figuren3D;
 
+import figuren.ThreeDFig;
+
 public class Kugel extends Figur3D {
 	private double radius;
 	
 	public Kugel(double radius) {
-		super();
-		this.radius = radius;
+		this.setRadius(radius);
 	}
 	public double getRadius() {
 		return radius;
 	}
 	public void setRadius(double radius) {
-		this.radius = radius;
+		if(radius>0)
+			this.radius = radius;
+		else throw new IllegalArgumentException("Radius muss positiv sein.");
 	}
 	public double oberflaeche() {
 
@@ -30,6 +33,6 @@ public class Kugel extends Figur3D {
 	}
 	@Override
 	public String toCSVString() {
-		return this.radius + ";";
+		return ThreeDFig.SPHERE+ ";"+radius + ";";
 	}
 }

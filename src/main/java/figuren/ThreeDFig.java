@@ -17,9 +17,12 @@ public enum ThreeDFig {
 			l.add("Höhe");
 			break;
 		case PRISM:
+			l.add("Höhe");
+			break;
 		case REGULARPRISM:
 		case REGULARPYRAMID:
 			l.add("Höhe");
+			l.addAll(TwoDFig.POLYGON.dimensionNames());
 			break;
 		case CONE:
 			l.add("Höhe");
@@ -28,7 +31,7 @@ public enum ThreeDFig {
 		}
 		return l;
 	}
-
+//	Ursprünglich unter der Annahme geschreiben, dass bei Enums der Index gespreichert wird
 	public static ThreeDFig intToEnum(int i) {
 		switch (i) {
 		case 0:

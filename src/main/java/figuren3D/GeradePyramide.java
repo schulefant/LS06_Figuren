@@ -2,6 +2,7 @@
  * @author rollins
  */
 package figuren3D;
+import figuren.ThreeDFig;
 import figuren2D.*;
 
 public abstract class GeradePyramide<F extends Figur2D> extends FigurMitGrundflaecheUndHoehe<F> {
@@ -17,8 +18,7 @@ public abstract class GeradePyramide<F extends Figur2D> extends FigurMitGrundfla
 		
 		return (1/3.0 )* this.getHoehe() * this.getGrund().flaeche() ;
 	}
-	public GeradePyramide(double hoehe, F grund) throws IllegalArgumentException{
+	protected GeradePyramide(double hoehe, F grund) throws IllegalArgumentException{
 		super(hoehe, grund);
 	}
-
 }

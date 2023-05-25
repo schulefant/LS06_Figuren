@@ -77,4 +77,9 @@ public class Rechteck extends Figur2D {
 		result += this.breite + ";";
 		return result;
 	}
+
+	@Override
+	public TwoDFig getType() {
+		return TwoDFig.RECTANGLE ;
+	}
 }

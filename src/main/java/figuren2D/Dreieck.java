@@ -74,7 +74,7 @@ public class Dreieck extends Figur2D{
 	 */
 
 	public double hoehe() {
-		return this.flaeche() * 2 / this.seiteC;
+		return (this.flaeche() * 2 )/ this.seiteC;
 	}
 
 	/**
@@ -132,9 +132,14 @@ public class Dreieck extends Figur2D{
 	@Override
 	public String toCSVString() {
 		String result = TwoDFig.TRIANGLE+ ";";
-		result += seiteA + ";";
+		result += this.seiteA + ";";
 		result += this.seiteB + ";";
 		result += this.seiteC + ";";
 		return result;
+	}
+
+	@Override
+	public TwoDFig getType() {
+		return TwoDFig.TRIANGLE;
 	}
 }

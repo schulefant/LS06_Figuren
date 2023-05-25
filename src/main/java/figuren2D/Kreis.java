@@ -43,4 +43,9 @@ public class Kreis extends Figur2D {
 	public String toCSVString() {
 		return TwoDFig.CIRCLE+ ";"+ this.radius + ";";
 	}
+
+	@Override
+	public TwoDFig getType() {
+		return TwoDFig.CIRCLE;
+	}
 }

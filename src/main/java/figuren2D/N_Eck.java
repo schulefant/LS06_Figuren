@@ -3,6 +3,8 @@
  */
 package figuren2D;
 
+import figuren.TwoDFig;
+
 public class N_Eck extends Figur2D {
 
 	private double seitenLaenge;
@@ -61,8 +63,14 @@ public class N_Eck extends Figur2D {
 
 	@Override
 	public String toCSVString() {
-		String result = this.seitenLaenge + ";";
+		String result = TwoDFig.POLYGON+ ";";
+		result += this.seitenLaenge + ";";
 		result += this.n + ";";
 		return result;
+	}
+
+	@Override
+	public TwoDFig getType() {
+		return TwoDFig.POLYGON ;
 	}
 }
